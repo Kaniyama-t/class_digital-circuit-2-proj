@@ -1,4 +1,14 @@
 |scounter
+CLK => count1:U0.CLK
+nRST => count1:U0.nRST
+nRST => cnt1:U1.nRST
+COUNT[0] << cnt1:U1.COUNT[0]
+COUNT[1] << cnt1:U1.COUNT[1]
+COUNT[2] << cnt1:U1.COUNT[2]
+COUNT[3] << cnt1:U1.COUNT[3]
+
+
+|scounter|count1:U0
 CLK => cnt_tmp[0].CLK
 CLK => cnt_tmp[1].CLK
 CLK => cnt_tmp[2].CLK
@@ -77,5 +87,23 @@ COUNT[21] <= COUNT[21].DB_MAX_OUTPUT_PORT_TYPE
 COUNT[22] <= COUNT[22].DB_MAX_OUTPUT_PORT_TYPE
 COUNT[23] <= COUNT[23].DB_MAX_OUTPUT_PORT_TYPE
 COUNT[24] <= COUNT[24].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|scounter|cnt1:U1
+CLK => cnt_tmp[0].CLK
+CLK => cnt_tmp[1].CLK
+CLK => cnt_tmp[2].CLK
+CLK => cnt_tmp[3].CLK
+CLK => CO~reg0.CLK
+nRST => cnt_tmp[0].ACLR
+nRST => cnt_tmp[1].ACLR
+nRST => cnt_tmp[2].ACLR
+nRST => cnt_tmp[3].ACLR
+nRST => CO~reg0.ACLR
+CO <= CO~reg0.DB_MAX_OUTPUT_PORT_TYPE
+COUNT[0] <= cnt_tmp[0].DB_MAX_OUTPUT_PORT_TYPE
+COUNT[1] <= cnt_tmp[1].DB_MAX_OUTPUT_PORT_TYPE
+COUNT[2] <= cnt_tmp[2].DB_MAX_OUTPUT_PORT_TYPE
+COUNT[3] <= cnt_tmp[3].DB_MAX_OUTPUT_PORT_TYPE
 
 

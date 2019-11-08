@@ -6,11 +6,11 @@ entity cnt1 is
 		CLK :	in std_logic;
 		nRST:	in std_logic;		
 		CO:	out std_logic;
-		COUNT:out std_logic_vector(24 downto 0)
+		COUNT:out std_logic_vector(3 downto 0)
 	);
 end cnt1;
 architecture RTL of cnt1 is
-	signal cnt_tmp: std_logic_vector(24 downto 0);
+	signal cnt_tmp: std_logic_vector(3 downto 0);
 	begin
 	COUNT <= cnt_tmp;
 	process(nRST, CLK)
@@ -26,6 +26,7 @@ architecture RTL of cnt1 is
 				cnt_tmp <= "0000";
 				CO <= '1';
 			end if;
+		else
 		end if;
 	end process;
 end RTL;
